@@ -492,20 +492,33 @@ layer_state_t layer_state_set_user(layer_state_t layer) {
     return layer;
 }
 
-void enableProfileColor(uint8_t * profile);
-void resetProfileColor(void);
-bool is_caps_set = false;
-bool is_caps_on = false;
-uint8_t caps_profile[] = {0xFF,0x00,0x00};
+
+// The function to handle the caps lock logic
 bool led_update_user(led_t leds) {
   if (leds.caps_lock) {
-    is_caps_set = true;
-    enableProfileColor(caps_profile);
-    return true;
-  } else if(is_caps_set) {
-    is_caps_set = false;
-    resetProfileColor();
+    // Set the leds to red
+    annepro2LedSetForegroundColor(0xFF, 0x00, 0x00);
+  } else {
+    annepro2LedResetForegroundColor();
   }
 
   return true;
 }
+
+/* void enableProfileColor(uint8_t * profile); */
+/* void resetProfileColor(void); */
+/* bool is_caps_set = false; */
+/* bool is_caps_on = false; */
+/* uint8_t caps_profile[] = {0xFF,0x00,0x00}; */
+/* bool led_update_user(led_t leds) { */
+/*   if (leds.caps_lock) { */
+/*     is_caps_set = true; */
+/*     enableProfileColor(caps_profile); */
+/*     return true; */
+/*   } else if(is_caps_set) { */
+/*     is_caps_set = false; */
+/*     resetProfileColor(); */
+/*   } */
+
+/*   return true; */
+/* } */

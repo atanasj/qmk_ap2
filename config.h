@@ -14,14 +14,18 @@
 /* #define COMBO_COUNT 13 */
 #define COMBO_TERM 15
 
+
+#undef MOUSEKEY_INTERVAL
+#define MOUSEKEY_INTERVAL 16
+// The default is 20. Since we made the mouse about 3 times faster with the previous setting,
+// give it more time to accelerate to max speed to retain precise control over short distances.
+#undef MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_TIME_TO_MAX 40
+// The default is 300. Let's try and make this as low as possible while keeping the cursor responsive
+#undef MOUSEKEY_DELAY
+#define MOUSEKEY_DELAY 100
+
 #define MK_3_SPEED
 #define MK_MOMENTARY_ACCEL
 
-/* #define IS_COMMAND() (matrix_is_on(3, 0) && matrix_is_on(3, 11)) */
-/* #define IS_COMMAND() (matrix_is_on(0, 1) && matrix_is_on(0, 3) && matrix_is_on(0, 4) && matrix_is_on(0, 5)) */
-/* #define IS_COMMAND() (get_mods() == (MOD_BIT(KC_Q) | MOD_BIT(KC_W) | MOD_BIT(KC_E) | MOD_BIT(KC_R))) */
-
 #define CAPS_LOCATION (MATRIX_COLS * 2 + 11)
-
-/* #define LSPO_KEYS KC_LSFT, KC_LSFT, KC_9 */
-/* #define RSPC_KEYS KC_RSFT, KC_RSFT, KC_0 */

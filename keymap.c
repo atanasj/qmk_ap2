@@ -467,21 +467,33 @@ void matrix_scan_user(void) {
         leading = false;
         leader_end();
         // NOTE in built R operators
-        SEQ_ONE_KEY(KC_A) {
+        SEQ_TWO_KEYS(KC_R, KC_A) {
             /* needs to a as semi colon is a tap dance key */
             SEND_STRING(" <-");
         }
-        SEQ_ONE_KEY(KC_P) {
+        SEQ_TWO_KEYS(KC_R, KC_P) {
             SEND_STRING(" %>%");
         }
-        SEQ_ONE_KEY(KC_I) {
+        SEQ_TWO_KEYS(KC_R, KC_I) {
             SEND_STRING(" %in% ");
         }
-        SEQ_ONE_KEY(KC_N) {
+        SEQ_TWO_KEYS(KC_R, KC_N) {
             SEND_STRING(" %!in% ");
         }
-        SEQ_ONE_KEY(KC_S) {
+        // Signature section
+        SEQ_TWO_KEYS(KC_S, KC_S) {
             SEND_STRING("Cheers,  :-)" SS_TAP(X_ENT) SS_TAP(X_ENT) "Atanas");
+        }
+        // Kamoji section
+        SEQ_TWO_KEYS(KC_K, KC_F) {
+            send_unicode_string("(ノಠ痊ಠ)ノ彡┻━┻");
+        }
+        // Emoticons section
+        SEQ_TWO_KEYS(KC_E, KC_T) {
+            SEND_STRING(SS_LALT("D83D+DC83")); // 💃
+        }
+        SEQ_TWO_KEYS(KC_E, KC_P) {
+            SEND_STRING(SS_LALT("D83D+DCA9")); // 💩
         }
     }
 }
